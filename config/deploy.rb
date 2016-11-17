@@ -1,6 +1,6 @@
 
 # Change these
-server '138.68.81.53', port: 22, roles: [:web, :app, :db], primary: true
+server '138.68.83.140', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:Kolisnyk/book_shop.git'
 set :application,     'book_shop'
