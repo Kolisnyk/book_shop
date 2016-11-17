@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shop</title>
+    <title>Books for magic</title>  
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class ='<%= controller.controller_name %>'
-    <%= yield %>
+  <body class ='<%= controller.controller_name %>'>
+    <div id="banner">
+      <%= image_tag("logo.png") %>
+      <%= @page_title || "Magic bookshelf" %>
+    </div>  
+    <div id="columns">
+      <div id="side">
+        <ul>
+          <li><a href="http://www.google.com.ua">Search description</a></li>
+          <li><a href="http://www..../faq">FAQ</a></li>
+          <li><a href="http://www..../news">News</a></li>
+          <li><a href="http://www..../contacts">Contacts</a></li>
+        </ul>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>  
+    </div>  
   </body>
 </html>
