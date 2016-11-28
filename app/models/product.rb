@@ -1,4 +1,8 @@
 class Product < ApplicationRecord
+  has_many :line_items
+
+before_destroy :ensure_notreferenced_by_any_line_item
+
   validates :title, :description, :image_url, presence: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
   validates :title, uniqueness: true
@@ -10,4 +14,16 @@ class Product < ApplicationRecord
   def self.latest
     Product.order(:updated_at).last
   end
+
+  private
+
+  def ensure_notreferenced_by_any_line_item
+    if line_items.empty?
+      return true
+    else
+      errors.add(base, 'ceществуют товарные позиции')
+      return false
+    end
+  end
+
 end

@@ -13,7 +13,11 @@
       <%= @page_title || "Magic bookshelf" %>
     </div>  
     <div id="columns">
-      <div id="side">
+      <div id="side">      
+        <div id="cart">
+          <%= render @cart %>
+        </div>
+
         <ul>
           <li><a href="http://www.google.com.ua">Search description</a></li>
           <li><a href="http://www..../faq">FAQ</a></li>
